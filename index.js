@@ -24,6 +24,15 @@ import cors from "cors";
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 import { authenticateUser } from "./middleware/authMiddleware.js";
 
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://jobify-frontend-nbs.vercel.app"],
+    credentials: true,
+  })
+);
+
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_API_KEY,
@@ -41,13 +50,6 @@ app.use(helmet());
 app.use(mongoSanitize());
 
 import cors from "cors";
-
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://jobify-frontend-nbs.vercel.app"],
-    credentials: true, // 👈 allow cookies to be sent
-  })
-);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
