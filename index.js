@@ -39,7 +39,16 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(helmet());
 app.use(mongoSanitize());
-app.use(cors());
+
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://jobify-frontend-nbs.vercel.app"],
+    credentials: true, // 👈 allow cookies to be sent
+  })
+);
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });

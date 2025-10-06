@@ -1,7 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
 const customFetch = axios.create({
-  baseURL: '/api/v1',
+  baseURL: "https://jobify-server-nbs.vercel.app/api/v1",
+  withCredentials: true, // 👈 send cookies
 });
 
 export default customFetch;
