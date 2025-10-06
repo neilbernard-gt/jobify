@@ -18,6 +18,7 @@ import userRouter from "./routes/userRouter.js";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
+import cors from "cors";
 
 // middleware
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
@@ -38,7 +39,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(helmet());
 app.use(mongoSanitize());
-
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
