@@ -24,8 +24,6 @@ import cors from "cors";
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 import { authenticateUser } from "./middleware/authMiddleware.js";
 
-import cors from "cors";
-
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://jobify-frontend-nbs.vercel.app"],
@@ -48,8 +46,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(helmet());
 app.use(mongoSanitize());
-
-import cors from "cors";
 
 app.get("/", (req, res) => {
   res.send("Hello World");
