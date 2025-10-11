@@ -31,13 +31,14 @@ export const login = async (req, res) => {
   //   expires: new Date(Date.now() + oneDay),
   //   secure: process.env.NODE_ENV === "production",
   // });
-  // res.status(StatusCodes.OK).json({ msg: "user logged in" });
+
   res.cookie("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production", // ✅ required for Vercel HTTPS
     sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ✅ allow cross-site cookies
     maxAge: 1000 * 60 * 60 * 24, // 1 day
   });
+  res.status(StatusCodes.OK).json({ msg: "user logged in" });
 };
 
 export const logout = (req, res) => {
