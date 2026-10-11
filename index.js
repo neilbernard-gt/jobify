@@ -26,9 +26,9 @@ import { authenticateUser } from "./middleware/authMiddleware.js";
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://jobify-frontend-nbs.vercel.app"],
+    origin: ["http://localhost:5173", "https://jobify-ph.vercel.app/"],
     credentials: true,
-  })
+  }),
 );
 //app.use(cors());
 cloudinary.config({
