@@ -26,7 +26,7 @@ import { authenticateUser } from "./middleware/authMiddleware.js";
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://jobify-ph.vercel.app/"],
+    origin: ["https://jobify-ph.vercel.app"],
     credentials: true,
   }),
 );
